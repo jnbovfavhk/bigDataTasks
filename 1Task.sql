@@ -59,7 +59,7 @@ MATTHEWS
 
 -- Ваш код:
 
-SELECT MAX(return_date - rental_date) as max_durance, email
+SELECT MAX(TIMESTAMPDIFF(HOUR, rental_date, return_date)) as max_durance, email
 from rental r 
 JOIN customer c on r.customer_id = c.customer_id
 where date(return_date) = '2005-07-07'
